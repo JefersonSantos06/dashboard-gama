@@ -1,0 +1,28 @@
+<div class="table-responsive">
+  <table  datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger"  class="table table-striped" id="dataTables-empresas">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>CNPJ</th>
+      <th>Rua</th>
+      <th>Numero</th>
+      <th>Cidade</th>
+      <th>Estado</th>
+      <th>Frete</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let x of data">
+      <td>{{x.id}}</td>
+      <td>{{x.remetente}}</td>
+      <td>{{x.cnpj | CpfCnpj }}</td>
+      <td>{{x.rua}}</td>
+      <td>{{x.numero}}</td>
+      <td>{{x.cidade}}</td>
+      <td>{{x.estado}}</td>
+      <td>{{x.valorFrete | currency : 'R$ '}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

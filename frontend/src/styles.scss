@@ -1,0 +1,77 @@
+/* Importing Bootstrap SCSS file. */
+@import '~src/assets/vendor/bootstrap/scss/bootstrap';
+
+@import 'sweetalert2/src/sweetalert2.scss';
+
+/* Importing Datatables SCSS file. */
+@import "scss/datatables.scss";
+
+// Import Custom SB Admin 2 Variables (Overrides Default Bootstrap Variables)
+@import "src/assets/scss/variables.scss";
+
+// Import Custom SB Admin 2 Mixins and Components
+@import "src/assets/scss/global.scss";
+@import "src/assets/scss/utilities.scss";
+
+// Custom Components
+@import "src/assets/scss/dropdowns.scss";
+@import "src/assets/scss/navs.scss";
+
+
+.bg-green{
+  background: #44941e;
+}
+
+.text-primary{
+  color: #7c38da !important;
+}
+
+.btn-primary {
+  color: #fff ;
+  background-color: #44941e !important;
+  border-color: #44941e !important;;
+}
+
+.btn-primary:hover {
+  color: #fff !important;
+  background-color: #6fc25b !important;
+  border-color: #6fc25b !important;
+}
+
+.btn-primary:focus, .btn-primary.focus {
+  color: #fff !important;
+  background-color: #6fc25b !important;
+  border-color: #6fc25b !important;
+  box-shadow: 0 0 0 0.2rem #6DE4697F !important;
+}
+
+.btn-primary.disabled, .btn-primary:disabled {
+  color: #232323 !important;
+  background-color: #6eff0080 !important;
+  border-color: #6eff0080 !important;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
+.show > .btn-primary.dropdown-toggle {
+  color: #fff !important;
+  background-color: #6fc25b !important;
+  border-color: #6FC646FF !important;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
+.show > .btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 0.2rem #6DE4697F !important;
+}
+
+.form-control:focus {
+  border-color: #6fc25b !important;
+  box-shadow: 0 0 0 0.2rem #6DE4697F !important;
+}
+
+form{
+  label{
+    margin-top: 8px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}
