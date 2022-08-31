@@ -36,6 +36,7 @@ public class ClienteServiceImpl implements ClienteService {
         repository.delete(getEntity(id));
     }
 
+
     @Override
     public Page<ClienteDto> getAllClientes(Pageable pageable){
         Page<Cliente> page = repository.findAll(pageable);
@@ -48,11 +49,19 @@ public class ClienteServiceImpl implements ClienteService {
                         x.getCpf(),
                         x.getRua(),
                         x.getNumero(),
+                        x.getCidade(),
                         x.getCep(),
                         x.getEstado()
                 )).collect(Collectors.toList()), pageable, totalElements);
     }
 
+    @Override
+    public ClienteDto update(ClienteDto dto, long id){
+        Cliente entity = getEntity(id);
+        BeanUtils.copyProperties(dto, entity);
+        entity.setId(entity.getId());
+        return mapToDto(repository.save(entity));
+    }
 
     private ClienteDto mapToDto(Cliente entity){
         return ClienteDto.builder()
@@ -61,6 +70,7 @@ public class ClienteServiceImpl implements ClienteService {
                 .cpf(entity.getCpf())
                 .rua(entity.getRua())
                 .numero(entity.getNumero())
+                .cidade(entity.getCidade())
                 .estado(entity.getEstado())
                 .cep(entity.getCep())
                 .build();

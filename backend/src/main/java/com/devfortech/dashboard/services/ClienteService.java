@@ -12,5 +12,8 @@ public interface ClienteService {
 
     Page<ClienteDto> getAllClientes(Pageable pageable);
 
+    ClienteDto update(ClienteDto dto, long id);
+
     void deleteClienteById(long id);
+
 }

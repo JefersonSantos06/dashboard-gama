@@ -15,4 +15,6 @@ public interface EmpresaService {
 
     void deleteEmpresaById(long id);
 
+    EmpresaDto update(EmpresaDto dto, long id);
+
 }

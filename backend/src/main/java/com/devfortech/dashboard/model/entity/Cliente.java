@@ -39,6 +39,9 @@ public class Cliente implements Serializable {
     private String numero;
 
     @Column
+    private String cidade;
+
+    @Column
     private String estado;
 
     @Column

@@ -58,6 +58,15 @@ public class EmpresaServiceImpl implements EmpresaService {
     }
 
 
+    @Override
+    public EmpresaDto update(EmpresaDto dto, long id) {
+        Empresa entity = getEntity(id);
+        BeanUtils.copyProperties(mapToEntity(dto), entity);
+        entity.setId(id);
+        return mapToDto(repository.save(entity));
+    }
+
+
     private EmpresaDto mapToDto(Empresa entity){
         return EmpresaDto.builder()
                 .id(entity.getId())

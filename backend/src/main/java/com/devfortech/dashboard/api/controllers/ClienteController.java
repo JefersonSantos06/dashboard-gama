@@ -41,4 +41,9 @@ public class ClienteController {
         service.deleteClienteById(id);
     }
 
+    @PutMapping("{id}")
+    public ResponseEntity<ClienteDto> update(@Valid @RequestBody ClienteDto dto, @PathVariable long id){
+        ClienteDto newDto = service.update(dto, id);
+        return new ResponseEntity<>(newDto, HttpStatus.OK);
+    }
 }

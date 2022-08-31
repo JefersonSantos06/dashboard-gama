@@ -1,5 +1,6 @@
 package com.devfortech.dashboard.api.controllers;
 
+import com.devfortech.dashboard.api.dto.ClienteDto;
 import com.devfortech.dashboard.api.dto.EmpresaDto;
 import com.devfortech.dashboard.services.EmpresaService;
 import lombok.RequiredArgsConstructor;
@@ -38,6 +39,12 @@ public class EmpresaController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteClienteById(@PathVariable long id){
         service.deleteEmpresaById(id);
+    }
+
+    @PutMapping("{id}")
+    public ResponseEntity<EmpresaDto> update(@Valid @RequestBody EmpresaDto dto, @PathVariable long id){
+        EmpresaDto newDto = service.update(dto, id);
+        return new ResponseEntity<>(newDto, HttpStatus.OK);
     }
 
 }
