@@ -1,10 +1,12 @@
 /* Importing Bootstrap SCSS file. */
 @import '~src/assets/vendor/bootstrap/scss/bootstrap';
 
+/* Importing Sweetalert2 SCSS file. */
 @import 'sweetalert2/src/sweetalert2.scss';
 
 /* Importing Datatables SCSS file. */
 @import "scss/datatables.scss";
+@import "scss/datatables.net-responsive.scss";
 
 // Import Custom SB Admin 2 Variables (Overrides Default Bootstrap Variables)
 @import "src/assets/scss/variables.scss";
@@ -16,6 +18,7 @@
 // Custom Components
 @import "src/assets/scss/dropdowns.scss";
 @import "src/assets/scss/navs.scss";
+
 
 
 .bg-green{
@@ -73,5 +76,14 @@ form{
     margin-top: 8px;
     margin-bottom: 0;
     padding-bottom: 0;
+  }
+}
+
+tbody{
+  tr{
+    cursor: pointer;
+  }
+  tr:hover{
+    background-color: #56FF0251 !important;
   }
 }

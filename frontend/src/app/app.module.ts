@@ -10,6 +10,7 @@ import {ClientesModule} from "./pages/clientes/clientes.module";
 import {EmpresasModule} from "./pages/empresas/empresas.module";
 import localePt from '@angular/common/locales/pt';
 import {registerLocaleData} from "@angular/common";
+import {MaskPipe, NgxMaskModule} from "ngx-mask";
 
 registerLocaleData(localePt, 'pt');
 

@@ -25,14 +25,10 @@ public class ClienteController {
         return new ResponseEntity<>(service.createCliente(dto), HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "{id}")
-    public ResponseEntity<ClienteDto> getBancoByBcCodigo(@PathVariable long id){
-        return ResponseEntity.ok(service.getClienteById(id));
-    }
-
     @GetMapping
-    public ResponseEntity<Page<ClienteDto>> getAllClientes(@PageableDefault(page = 0, size = 15)Pageable pageable){
-        return ResponseEntity.status(HttpStatus.OK).body(service.getAllClientes(pageable));
+    public ResponseEntity<Page<ClienteDto>> getAllClientes(@RequestParam(value = "search", required = false) String search,
+                                                           @PageableDefault(page = 0, size = 15)Pageable pageable){
+        return ResponseEntity.status(HttpStatus.OK).body(service.getAllClientes(pageable, search));
     }
 
     @DeleteMapping("{id}")

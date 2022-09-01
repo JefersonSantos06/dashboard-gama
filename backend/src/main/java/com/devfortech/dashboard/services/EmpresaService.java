@@ -11,7 +11,7 @@ public interface EmpresaService {
 
     EmpresaDto getEmpresaById(long id);
 
-    Page<EmpresaDto> getAllEmpresas(Pageable pageable);
+    Page<EmpresaDto> getAllEmpresas(Pageable pageable, String search);
 
     void deleteEmpresaById(long id);
 

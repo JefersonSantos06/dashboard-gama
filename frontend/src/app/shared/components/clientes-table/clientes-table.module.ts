@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { ClientesTableComponent } from './clientes-table.component';
+import {NgModule} from '@angular/core';
+import {ClientesTableComponent} from './clientes-table.component';
 import {SharedModule} from "../../shared.module";
 import {DataTablesModule} from "angular-datatables";
-import {AppPipeModule} from "../../pipe/app-pipe.module";
+import {MaskPipe} from "ngx-mask";
 
 
 @NgModule({
@@ -12,10 +12,12 @@ import {AppPipeModule} from "../../pipe/app-pipe.module";
   exports: [
     ClientesTableComponent
   ],
-    imports: [
-        SharedModule,
-        DataTablesModule,
-        AppPipeModule
-    ]
+  imports: [
+    SharedModule,
+    DataTablesModule,
+  ], providers: [
+    {provide: MaskPipe},
+  ],
 })
-export class ClientesTableModule { }
+export class ClientesTableModule {
+}

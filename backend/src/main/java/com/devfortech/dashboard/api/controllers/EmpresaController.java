@@ -31,8 +31,9 @@ public class EmpresaController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<EmpresaDto>> getAllClientes(@PageableDefault(page = 0, size = 15)Pageable pageable){
-        return ResponseEntity.status(HttpStatus.OK).body(service.getAllEmpresas(pageable));
+    public ResponseEntity<Page<EmpresaDto>> getAllClientes(@RequestParam(value = "search", required = false) String search,
+                                                           @PageableDefault(page = 0, size = 15)Pageable pageable){
+        return ResponseEntity.status(HttpStatus.OK).body(service.getAllEmpresas(pageable, search));
     }
 
     @DeleteMapping("{id}")

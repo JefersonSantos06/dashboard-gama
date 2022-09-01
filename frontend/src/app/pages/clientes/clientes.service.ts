@@ -21,4 +21,18 @@ export class ClientesService {
           return data;
         }));
   }
+
+  alteraCliente(cliente: FormGroup, id: any): Observable<any>{
+    return this.http.put<Cliente>(this.url + "/" + id , cliente.value).pipe(
+      map((data: any) => {
+          return data;
+        }));
+  }
+
+  excluirCliente(id: any){
+    return this.http.delete<Cliente>(this.url + "/" + id).pipe(
+      map((data: any) => {
+        return data;
+      }));
+  }
 }

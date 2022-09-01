@@ -10,7 +10,7 @@ public interface ClienteService {
 
     ClienteDto getClienteById(long id);
 
-    Page<ClienteDto> getAllClientes(Pageable pageable);
+    Page<ClienteDto> getAllClientes(Pageable pageable, String search);
 
     ClienteDto update(ClienteDto dto, long id);
 

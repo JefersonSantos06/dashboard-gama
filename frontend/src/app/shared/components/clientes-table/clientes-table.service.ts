@@ -1,29 +1,29 @@
-import { Injectable } from '@angular/core';
-import { environment as env} from "../../../../environments/environment";
-import {HttpClient, HttpParams} from "@angular/common/http";
+import {Injectable} from '@angular/core';
+import {environment as env} from "../../../../environments/environment";
+import {HttpClient, HttpResponse, HttpParams} from "@angular/common/http";
 import {Cliente} from "../../models/cliente";
 import {map, Observable, Subject} from "rxjs";
-declare var $ :any;
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClientesTableService {
-
   url: string = env.urlApi + '/cliente'
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
-  getAllClientes(pageNumber?: number): Observable<{ content: any; totalElements: any }> {
+  getAllForTable(start: number, lenght: number, search: string): Observable<any> {
     const params = new HttpParams()
-      .set("page", 0)
-      .set("size", 999)
+      .set("page", (start / lenght))
+      .set("size", lenght)
+      .set("search", search)
 
-    return this.http.get<Cliente[]>(this.url, {params}).pipe(
-      map(
-        (res:any) => {
-          return {"content" : res.content, "totalElements":res.totalElements};
-        }));
+    return this.http.get<any>( this.url, {params}).pipe(
+      map((resp: any) => {
+        return resp
+      }
+    ));
   }
 }
 

@@ -5,19 +5,27 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {EmpresasRoutingModule} from "./empresas-routing.module";
 import {SharedModule} from "../../shared/shared.module";
 import {CurrencyMaskModule} from "ng2-currency-mask";
+import {AppPipeModule} from "../../shared/pipe/app-pipe.module";
+import {EmpresaCadastroComponent} from "./empresa-cadastro/empresa-cadastro.component";
+import {EmpresaMenuComponent} from "./empresa-menu/empresa-menu.component";
+import {EmpresasTableModule} from "../../shared/components/empresas-table/empresas-table.module";
 
 
 
 @NgModule({
   declarations: [
-    EmpresasComponent
+    EmpresasComponent,
+    EmpresaCadastroComponent,
+    EmpresaMenuComponent
   ],
   imports: [
     SharedModule,
     ReactiveFormsModule,
     EmpresasRoutingModule,
     CurrencyMaskModule,
-    NgxMaskModule.forRoot()
+    AppPipeModule,
+    NgxMaskModule.forRoot(),
+    EmpresasTableModule
   ]
 })
 export class EmpresasModule { }

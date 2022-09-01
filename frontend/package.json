@@ -30,6 +30,8 @@
     "bootstrap": "^5.2.0",
     "datatables.net": "^1.12.1",
     "datatables.net-dt": "^1.12.1",
+    "datatables.net-responsive": "^2.3.0",
+    "datatables.net-responsive-dt": "^2.3.0",
     "jquery": "^3.6.1",
     "ng2-currency-mask": "^13.0.3",
     "ngx-mask": "^14.0.3",

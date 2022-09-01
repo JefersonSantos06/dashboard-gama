@@ -34,8 +34,14 @@ public class EmpresaServiceImpl implements EmpresaService {
     }
 
     @Override
-    public Page<EmpresaDto> getAllEmpresas(Pageable pageable){
-        Page<Empresa> page = repository.findAll(pageable);
+    public Page<EmpresaDto> getAllEmpresas(Pageable pageable, String search){
+        Page<Empresa> page;
+        if (search != null && search != ""){
+            page = repository.getEmpresaSearchAll(pageable, search);
+        }else{
+            page = repository.findAll(pageable);
+        }
+
         long totalElements = page.getTotalElements();
         return new PageImpl<>(page.getContent()
                 .stream()

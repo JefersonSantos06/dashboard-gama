@@ -38,8 +38,14 @@ public class ClienteServiceImpl implements ClienteService {
 
 
     @Override
-    public Page<ClienteDto> getAllClientes(Pageable pageable){
-        Page<Cliente> page = repository.findAll(pageable);
+    public Page<ClienteDto> getAllClientes(Pageable pageable, String search){
+        Page<Cliente> page;
+        if (search != null && search != ""){
+            page = repository.getClienteSearchAll(pageable, search);
+        }else{
+            page = repository.findAll(pageable);
+        }
+
         long totalElements = page.getTotalElements();
         return new PageImpl<>(page.getContent()
                 .stream()
@@ -59,7 +65,7 @@ public class ClienteServiceImpl implements ClienteService {
     public ClienteDto update(ClienteDto dto, long id){
         Cliente entity = getEntity(id);
         BeanUtils.copyProperties(dto, entity);
-        entity.setId(entity.getId());
+        entity.setId(id);
         return mapToDto(repository.save(entity));
     }
 
